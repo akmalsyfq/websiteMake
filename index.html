@@ -24,8 +24,8 @@
 
 <body>
 
-    <!-- Background Music -->
-    <audio id="bg-music" loop>
+    <!-- Background Music: Autoplay Muted -->
+    <audio id="bg-music" autoplay muted loop>
         <source src="source/Janam Janam Dilwale Instrumental.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
@@ -66,19 +66,27 @@
         updateCountdown();
     </script>
 
-    <!-- Scroll-triggered Audio Play -->
+    <!-- Smart Unmute on User Interaction -->
     <script>
-        let hasPlayed = false;
+        const bgMusic = document.getElementById('bg-music');
+        let hasUnmuted = false;
 
-        window.addEventListener('scroll', () => {
-            if (!hasPlayed) {
-                const music = document.getElementById('bg-music');
-                music.play().catch(error => {
-                    console.log("Autoplay blocked:", error);
+        function tryUnmuteAndPlay() {
+            if (!hasUnmuted) {
+                bgMusic.muted = false;
+                bgMusic.play().then(() => {
+                    console.log("Audio playing and unmuted!");
+                }).catch(err => {
+                    console.warn("Play failed:", err);
                 });
-                hasPlayed = true;
+                hasUnmuted = true;
             }
-        });
+        }
+
+        // User gestures to trigger unmute
+        window.addEventListener('scroll', tryUnmuteAndPlay);
+        window.addEventListener('click', tryUnmuteAndPlay);
+        window.addEventListener('touchstart', tryUnmuteAndPlay);
     </script>
 
 </body>
