@@ -11,8 +11,7 @@
       height: 100%;
       margin: 0;
       padding: 0;
-      background: url('./source/background.png') no-repeat center center fixed;
-      background-size: cover;
+      background: #f4f4f4; /* plain background outside container */
       display: flex;
       justify-content: center;
       align-items: center;
@@ -21,27 +20,35 @@
     .app-container {
       width: 100%;
       max-width: 430px;   /* phone width */
-      min-height: 100vh;  /* full screen */
-      background: rgba(255, 255, 255, 0.9); /* white with slight transparency */
+      height: 100vh;      /* full screen height */
+      background: url('./source/background.png') no-repeat center center;
+      background-size: cover;
       display: flex;
       flex-direction: column;
       text-align: center;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      
+      color: #fff;
+
+      overflow-y: auto;   /* ✅ enable vertical scrolling */
+      -webkit-overflow-scrolling: touch; /* ✅ smooth scrolling on iOS */
     }
 
     .top-image {
       height: auto;
       display: block;
+      margin: 0 auto;
+      max-width: 100%;
     }
 
     #countdown {
       font-size: 1.5em;
-      background-color: #fff;
+      background-color: rgba(0, 0, 0, 0.6); /* semi-transparent overlay */
       display: inline-block;
       padding: 15px 20px;
       border-radius: 10px;
-      box-shadow: 0 0 10px #aaa;
       margin: 20px auto;
+      color: #fff;
     }
   </style>
 </head>
@@ -53,18 +60,38 @@
     <!-- Countdown -->
     <h2>Countdown to October 25, 2025</h2>
     <div id="countdown">Loading...</div>
-    <!-- Countdown -->
-    <h2>Countdown to October 25, 2025</h2>
-    <div id="countdown">Loading...</div>
-    <!-- Countdown -->
-    <h2>Countdown to October 25, 2025</h2>
-    <div id="countdown">Loading...</div>
-    <!-- Countdown -->
-    <h2>Countdown to October 25, 2025</h2>
-    <div id="countdown">Loading...</div>
-    <!-- Countdown -->
-    <h2>Countdown to October 25, 2025</h2>
-    <div id="countdown">Loading...</div>
+
+    <!-- Example extra content for scrolling -->
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <p>Aliquam bibendum magna non dolor pretium, vel fermentum orci convallis.</p>
+    <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices.</p>
+    <p>Curabitur non tincidunt ex. Proin accumsan mi eu urna commodo.</p>
+    <p>Donec sed justo viverra, faucibus purus non, varius nisl.</p>
+    <p>End of content</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <p>Aliquam bibendum magna non dolor pretium, vel fermentum orci convallis.</p>
+    <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices.</p>
+    <p>Curabitur non tincidunt ex. Proin accumsan mi eu urna commodo.</p>
+    <p>Donec sed justo viverra, faucibus purus non, varius nisl.</p>
+    <p>End of content</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <p>Aliquam bibendum magna non dolor pretium, vel fermentum orci convallis.</p>
+    <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices.</p>
+    <p>Curabitur non tincidunt ex. Proin accumsan mi eu urna commodo.</p>
+    <p>Donec sed justo viverra, faucibus purus non, varius nisl.</p>
+    <p>End of content</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <p>Aliquam bibendum magna non dolor pretium, vel fermentum orci convallis.</p>
+    <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices.</p>
+    <p>Curabitur non tincidunt ex. Proin accumsan mi eu urna commodo.</p>
+    <p>Donec sed justo viverra, faucibus purus non, varius nisl.</p>
+    <p>End of content</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <p>Aliquam bibendum magna non dolor pretium, vel fermentum orci convallis.</p>
+    <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices.</p>
+    <p>Curabitur non tincidunt ex. Proin accumsan mi eu urna commodo.</p>
+    <p>Donec sed justo viverra, faucibus purus non, varius nisl.</p>
+    <p>End of content</p>
   </div>
 
   <!-- Countdown Script -->
