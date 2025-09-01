@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title>AkmalSyafiq</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body,
     html {
@@ -12,101 +13,86 @@
       padding: 0;
       background: url('./source/background.png') no-repeat center center fixed;
       background-size: cover;
-      position: relative;
-      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
-    #countdown {
-      font-size: 2em;
-      background-color: #fff;
-      display: inline-block;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px #aaa;
+    .app-container {
+      width: 100%;
+      max-width: 430px;   /* phone width */
+      min-height: 100vh;  /* full screen */
+      background: rgba(255, 255, 255, 0.9); /* white with slight transparency */
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
     }
 
     .top-image {
       width: 100%;
       height: auto;
       display: block;
-      margin: 0 auto;
-      max-width: 100vw;
+    }
+
+    #countdown {
+      font-size: 1.5em;
+      background-color: #fff;
+      display: inline-block;
+      padding: 15px 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #aaa;
+      margin: 20px auto;
     }
   </style>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 </head>
 
 <body>
-  <img src="source/TopPage.png" alt="Wedding Invitation" class="top-image" />
+  <div class="app-container">
+    <img src="source/TopPage.png" alt="Wedding Invitation" class="top-image" />
 
-  <!-- Countdown -->
-  <h1>Countdown to October 25, 2025</h1>
-  <div id="countdown">Loading...</div><!-- Countdown -->
-  <h1>Countdown to October 25, 2025</h1>
-  <div id="countdown">Loading...</div><!-- Countdown -->
-  <h1>Countdown to October 25, 2025</h1>
-  <div id="countdown">Loading...</div><!-- Countdown -->
-  <h1>Countdown to October 25, 2025</h1>
-  <div id="countdown">Loading...</div><!-- Countdown -->
-  <h1>Countdown to October 25, 2025</h1>
-  <div id="countdown">Loading...</div><!-- Countdown -->
-  <h1>Countdown to October 25, 2025</h1>
-  <div id="countdown">Loading...</div><!-- Countdown -->
-  <h1>Countdown to October 25, 2025</h1>
-  <div id="countdown">Loading...</div><!-- Countdown -->
-  <h1>Countdown to October 25, 2025</h1>
-  <div id="countdown">Loading...</div><!-- Countdown -->
-  <h1>Countdown to October 25, 2025</h1>
-  <div id="countdown">Loading...</div><!-- Countdown -->
-  <h1>Countdown to October 25, 2025</h1>
-  <div id="countdown">Loading...</div><!-- Countdown -->
-  <h1>Countdown to October 25, 2025</h1>
-  <div id="countdown">Loading...</div><!-- Countdown -->
-  <h1>Countdown to October 25, 2025</h1>
-  <div id="countdown">Loading...</div><!-- Countdown -->
-  <h1>Countdown to October 25, 2025</h1>
-  <div id="countdown">Loading...</div><!-- Countdown -->
-  <h1>Countdown to October 25, 2025</h1>
-  <div id="countdown">Loading...</div><!-- Countdown -->
-  <h1>Countdown to October 25, 2025</h1>
-  <div id="countdown">Loading...</div><!-- Countdown -->
-  <h1>Countdown to October 25, 2025</h1>
-  <div id="countdown">Loading...</div><!-- Countdown -->
-  <h1>Countdown to October 25, 2025</h1>
-  <div id="countdown">Loading...</div><!-- Countdown -->
-  <h1>Countdown to October 25, 2025</h1>
-  <div id="countdown">Loading...</div><!-- Countdown -->
-  <h1>Countdown to October 25, 2025</h1>
-  <div id="countdown">Loading...</div><!-- Countdown -->
-  <h1>Countdown to October 25, 2025</h1>
-  <div id="countdown">Loading...</div>
+    <!-- Countdown -->
+    <h2>Countdown to October 25, 2025</h2>
+    <div id="countdown">Loading...</div>
+    <!-- Countdown -->
+    <h2>Countdown to October 25, 2025</h2>
+    <div id="countdown">Loading...</div>
+    <!-- Countdown -->
+    <h2>Countdown to October 25, 2025</h2>
+    <div id="countdown">Loading...</div>
+    <!-- Countdown -->
+    <h2>Countdown to October 25, 2025</h2>
+    <div id="countdown">Loading...</div>
+    <!-- Countdown -->
+    <h2>Countdown to October 25, 2025</h2>
+    <div id="countdown">Loading...</div>
+  </div>
+
+  <!-- Countdown Script -->
+  <script>
+    const targetDate = new Date("2025-10-25T00:00:00Z").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const diff = targetDate - now;
+
+      if (diff <= 0) {
+        document.getElementById("countdown").innerHTML = "The date has already passed!";
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById("countdown").innerHTML =
+        `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
 </body>
 
 </html>
-
-<!-- Countdown Script -->
-<script>
-  const targetDate = new Date("2025-10-25T00:00:00Z").getTime();
-
-  function updateCountdown() {
-    const now = new Date().getTime();
-    const diff = targetDate - now;
-
-    if (diff <= 0) {
-      document.getElementById("countdown").innerHTML = "The date has already passed!";
-      return;
-    }
-
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-    document.getElementById("countdown").innerHTML =
-      `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`;
-  }
-
-  setInterval(updateCountdown, 1000);
-  updateCountdown();
-</script>
